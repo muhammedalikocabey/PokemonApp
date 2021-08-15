@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PokemonApp</string>
+    <string name="list_fragment">ListFragment</string>
+    <string name="fragment_detail">DetailFragment</string>
 </resources>

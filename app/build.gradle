@@ -1,3 +1,5 @@
+import com.plusone.buildsrc.Dependencies
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -34,12 +36,42 @@ android {
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    def nav_version = "2.3.5"
+
+    implementation Dependencies.kotlin
+    implementation Dependencies.appcompat
+    implementation Dependencies.material
+    implementation Dependencies.constraintLayout
+    implementation Dependencies.liveData
+    implementation Dependencies.viewModel
+    implementation Dependencies.fragment
+
+    // RecyclerView
+    implementation Dependencies.recyclerView
+
+    // Test
+    testImplementation Dependencies.junit
+    androidTestImplementation Dependencies.testJunit
+    androidTestImplementation Dependencies.espressoCore
+
+    // Coroutine
+    api Dependencies.coroutineCore
+    api Dependencies.coroutineAndroid
+
+    // Retrofit
+    implementation Dependencies.retrofit
+    implementation Dependencies.retrofitGsonConverter
+
+    // OkHttp3
+    implementation(platform(Dependencies.okHttpBom))
+    implementation Dependencies.okHttp
+    implementation Dependencies.okHttpLoggingInterceptor
+
+    // Gson
+    implementation Dependencies.gson
+
+    // Navigation
+    implementation Dependencies.navigationFragment
+    implementation Dependencies.navigationUi
+    implementation Dependencies.navigationDynamicFeature
 }
