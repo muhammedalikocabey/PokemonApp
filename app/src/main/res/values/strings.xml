@@ -2,4 +2,6 @@
     <string name="app_name">PokemonApp</string>
     <string name="list_fragment">ListFragment</string>
     <string name="fragment_detail">DetailFragment</string>
+    <string name="general_error_info">An error occurred while fetching data.\nPlease check your internet connection and try again by refreshing page</string>
+    <string name="pokemon_title">Pokemon</string>
 </resources>

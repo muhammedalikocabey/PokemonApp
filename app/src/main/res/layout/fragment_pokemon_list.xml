@@ -18,7 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Pokemon"
+            app:title="@string/pokemon_title"
             app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -45,7 +45,7 @@
 
             <include
                 android:id="@+id/progress_view"
-                layout="@layout/progress_view" />
+                layout="@layout/fullscreen_progress_view" />
 
             <TextView
                 android:id="@+id/fetching_error_text"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:paddingHorizontal="24dp"
-                android:text="An error occurred while fetching data.\nPlease check your internet connection and try again by refreshing page"
+                android:text="@string/general_error_info"
                 android:textColor="@color/red"
                 android:textSize="18sp"
                 android:visibility="gone"
