@@ -9,21 +9,21 @@ import com.example.pokemonapp.databinding.ItemPokemonListItemBinding
 import com.example.pokemonapp.util.displayImage
 
 class PokemonListAdapter(private val itemClickListener: PokemonItemClickListener) :
-    ListAdapter<PokemonViewState, PokemonViewHolder>(DIFF_CALLBACK) {
+    ListAdapter<PokemonListItemViewState, PokemonViewHolder>(DIFF_CALLBACK) {
 
     companion object {
-        private val DIFF_CALLBACK: DiffUtil.ItemCallback<PokemonViewState> =
-            object : DiffUtil.ItemCallback<PokemonViewState>() {
+        private val DIFF_CALLBACK: DiffUtil.ItemCallback<PokemonListItemViewState> =
+            object : DiffUtil.ItemCallback<PokemonListItemViewState>() {
                 override fun areItemsTheSame(
-                    oldItem: PokemonViewState,
-                    newItem: PokemonViewState,
+                    oldItem: PokemonListItemViewState,
+                    newItem: PokemonListItemViewState,
                 ): Boolean {
                     return oldItem.areItemsTheSame(newItem)
                 }
 
                 override fun areContentsTheSame(
-                    oldItem: PokemonViewState,
-                    newItem: PokemonViewState,
+                    oldItem: PokemonListItemViewState,
+                    newItem: PokemonListItemViewState,
                 ): Boolean {
                     return oldItem.areContentsTheSame(newItem)
                 }
@@ -50,7 +50,7 @@ class PokemonViewHolder(
     private val itemClickListener: PokemonItemClickListener,
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: PokemonViewState) {
+    fun bind(item: PokemonListItemViewState) {
         binding.apply {
             ivPokemon.displayImage(item.pictureUrl)
             tvPokemonName.text = item.name
@@ -61,5 +61,5 @@ class PokemonViewHolder(
 }
 
 interface PokemonItemClickListener {
-    fun onItemClick(pokemon: PokemonViewState)
+    fun onItemClick(pokemon: PokemonListItemViewState)
 }

@@ -11,7 +11,7 @@
         android:label="@string/list_fragment"
         tools:layout="@layout/fragment_pokemon_list">
         <action
-            android:id="@+id/action_navigation_pokemon_list_to_navigation_pokemon_detail"
+            android:id="@+id/action_pokemon_list_to_detail"
             app:destination="@id/navigation_pokemon_detail" />
     </fragment>
 
@@ -19,6 +19,12 @@
         android:id="@+id/navigation_pokemon_detail"
         android:name="com.example.pokemonapp.ui.detailpage.PokemonDetailFragment"
         android:label="@string/fragment_detail"
-        tools:layout="@layout/fragment_pokemon_detail" />
+        tools:layout="@layout/fragment_pokemon_detail">
+
+        <argument
+            android:name="pokemon"
+            app:argType="com.example.pokemonapp.ui.listpage.PokemonListItemViewState" />
+
+    </fragment>
 
 </navigation>

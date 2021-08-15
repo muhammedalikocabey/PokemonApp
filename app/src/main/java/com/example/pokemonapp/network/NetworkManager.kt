@@ -1,6 +1,5 @@
 package com.example.pokemonapp.network
 
-import android.util.Log
 import com.example.pokemonapp.constants.CloudConfig
 import com.example.pokemonapp.model.ApiResult
 import okhttp3.OkHttpClient
@@ -51,8 +50,7 @@ object NetworkManager {
                 ApiResult.Error(response.errorBody().toString())
             }
         } catch (e: Exception) {
-            Log.e("ApiManager.class", "callApi::call: ${call.javaClass}", e)
-            ApiResult.Error("Error")
+            ApiResult.Error("Error Occurred!")
         }
     }
 }

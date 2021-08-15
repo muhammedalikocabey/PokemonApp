@@ -31,5 +31,7 @@ object Dependencies {
         "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigationVersion}"
     const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
+    const val swipeRefreshLayout =
+        "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayoutVersion}"
 
 }

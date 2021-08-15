@@ -82,4 +82,8 @@ dependencies {
     implementation Dependencies.glide
     implementation Dependencies.glideCompiler
 
+    // Swipe Refresh Layout
+    implementation Dependencies.swipeRefreshLayout
+
+
 }

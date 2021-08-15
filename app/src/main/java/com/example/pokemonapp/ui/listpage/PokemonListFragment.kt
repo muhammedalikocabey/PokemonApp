@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pokemonapp.R
 import com.example.pokemonapp.databinding.FragmentPokemonListBinding
+import com.example.pokemonapp.util.EventObserver
+import com.example.pokemonapp.util.EventType
+import com.example.pokemonapp.util.gone
+import com.example.pokemonapp.util.visible
 
 class PokemonListFragment : Fragment(), PokemonItemClickListener {
 
@@ -37,9 +41,8 @@ class PokemonListFragment : Fragment(), PokemonItemClickListener {
         navController = Navigation.findNavController(view)
 
         initAdapter()
-        initObserver()
-
-        viewModel.getPokeList()
+        initObservers()
+        initListeners()
 
     }
 
@@ -52,13 +55,48 @@ class PokemonListFragment : Fragment(), PokemonItemClickListener {
 
     }
 
-    private fun initObserver() {
-        viewModel.pokeList.observe(viewLifecycleOwner) {
-            pokemonListAdapter.submitList(it)
+    private fun initObservers() {
+        with(viewModel) {
+            pokeList.observe(viewLifecycleOwner) {
+                binding.rvPokemonList.visible()
+                pokemonListAdapter.submitList(it)
+            }
+
+            event.observe(viewLifecycleOwner, EventObserver {
+                when (it) {
+                    is EventType.Error -> {
+                        if (pokemonListAdapter.itemCount > 0) {
+                            binding.rvPokemonList.visible()
+                            showToast(it.error)
+                        } else {
+                            binding.fetchingErrorText.visible()
+                        }
+                    }
+                    is EventType.HideProgress -> hideProgress()
+                    is EventType.ShowProgress -> showProgress()
+                }
+            })
         }
     }
 
-    override fun onItemClick(pokemon: PokemonViewState) {
-        navController.navigate(R.id.action_navigation_pokemon_list_to_navigation_pokemon_detail)
+    private fun initListeners() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            binding.swipeRefreshLayout.isRefreshing = false
+            binding.fetchingErrorText.gone()
+            binding.rvPokemonList.gone()
+            viewModel.getPokeList()
+        }
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun showProgress() = binding.progressView.progressBarContainer.visible()
+    fun hideProgress() = binding.progressView.progressBarContainer.gone()
+
+    override fun onItemClick(pokemon: PokemonListItemViewState) {
+        val direction = PokemonListFragmentDirections.actionPokemonListToDetail(pokemon)
+        navController.navigate(direction)
     }
 }
