@@ -3,6 +3,7 @@ import com.plusone.buildsrc.Dependencies
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {

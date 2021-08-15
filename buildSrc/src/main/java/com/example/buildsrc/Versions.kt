@@ -1,7 +1,7 @@
 package com.plusone.buildsrc
 
 object Versions {
-    val kotlinVersion = "1.5.0"
+    const val kotlinVersion = "1.5.0"
     const val appcompatVersion = "1.3.0"
     const val materialVersion = "1.3.0"
     const val constraintLayoutVersion = "2.0.4"
