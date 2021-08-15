@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_pokemon_list"
-        android:name="com.example.pokemonapp.ListFragment"
+        android:name="com.example.pokemonapp.ui.listpage.PokemonListFragment"
         android:label="@string/list_fragment"
         tools:layout="@layout/fragment_pokemon_list">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_pokemon_detail"
-        android:name="com.example.pokemonapp.DetailFragment"
+        android:name="com.example.pokemonapp.ui.detailpage.PokemonDetailFragment"
         android:label="@string/fragment_detail"
         tools:layout="@layout/fragment_pokemon_detail" />
 

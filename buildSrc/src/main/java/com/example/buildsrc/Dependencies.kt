@@ -29,5 +29,7 @@ object Dependencies {
     const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Versions.navigationVersion}"
     const val navigationDynamicFeature =
         "androidx.navigation:navigation-dynamic-features-fragment:${Versions.navigationVersion}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
+    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
 
 }

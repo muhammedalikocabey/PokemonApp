@@ -32,11 +32,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
-
-    def nav_version = "2.3.5"
 
     implementation Dependencies.kotlin
     implementation Dependencies.appcompat
@@ -74,4 +76,9 @@ dependencies {
     implementation Dependencies.navigationFragment
     implementation Dependencies.navigationUi
     implementation Dependencies.navigationDynamicFeature
+
+    // Glide
+    implementation Dependencies.glide
+    implementation Dependencies.glideCompiler
+
 }

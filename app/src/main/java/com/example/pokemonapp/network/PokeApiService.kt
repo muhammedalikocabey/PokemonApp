@@ -4,7 +4,7 @@ import com.example.pokemonapp.model.PokemonResponse
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface ApiService {
+interface PokeApiService {
     @GET(".")
     suspend fun getPokemonList(): Response<List<PokemonResponse>>
 }

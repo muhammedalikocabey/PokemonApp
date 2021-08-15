@@ -17,6 +17,6 @@ object Versions {
     const val gsonVersion = "2.8.7"
     const val recyclerviewVersion = "1.2.1"
     const val navigationVersion = "2.3.5"
-
+    const val glideVersion = "4.12.0"
 
 }
