@@ -14,7 +14,8 @@ This is the simple app that lists several pokemons and their details.
 ## Architecture
 
 - **MVVM** architecture is used
-- **Repository Pattern** and **Use Case** is used
+- **Repository** and **Use Case Pattern** is used
+- **Singleton** design pattern is preferred in Network Module instead of Dependency Injection
 
 ## How To Use
 - You will see several pokemons in main page.
